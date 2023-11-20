@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <title>Petition Added</title>
+</head>
+
+<body>
+<h2> Petition Added</h2>
+<br />
+<a href="/home">Home</a> <br />
+<br />
+<br />
+<p th:text="'Hello ' + ${signedby} + ', your petition as detailed below is added'"> </p>
+<br />
+
+<table>
+    <thead>
+    <tr>
+        <th>Number</th>
+        <th>Title</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${num}" />
+        <td th:text="${title}" />
+        <td th:text="${desc}" />
+    </tr>
+    </tbody>
+</table>
+
+</body>
+
+</html>

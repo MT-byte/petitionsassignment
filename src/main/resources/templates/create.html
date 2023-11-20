@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <title>Create Petition</title>
+</head>
+
+<body>
+<h2> Create New Petition </h2>
+<br />
+<a href="/home">Home</a> <br />
+<br />
+<br />
+<form action="/create" method="post">
+    <label for="PetitionTitle">Petition Title: </label> <br/>
+    <textarea id="title" name="title" rows="1" cols="80"></textarea>
+    <br />
+    <label for="PetitionDesc">Petition Description: </label> <br/>
+    <textarea id="desc" name="desc" rows="10" cols="60"></textarea>
+    <br />
+    <label for="SignedBy">Your Name: </label> <br/>
+    <textarea id="signedby" name="signedby" rows="1" cols="20"></textarea>
+    <br />
+    <label for="Email">Your email Address: </label> <br/>
+    <textarea id="email" name="email" rows="1" cols="20"></textarea>
+    <br />
+    <input type="submit" value="Submit">
+</form>
+</body>
+
+</html>
