@@ -95,5 +95,10 @@ public class AppController {
     }
 
 
+    @GetMapping("/viewall")
+    public String viewPetitionsPage(Model model) {
+        model.addAttribute("petitions", petitionList);
+        return "viewall";
+    }
 
 }

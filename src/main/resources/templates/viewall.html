@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <title>View All Petitions</title>
+</head>
+
+<body>
+<h2> All Petitions </h2>
+<br />
+<a href="/home">Home</a> <br />
+<br />
+<br />
+<table>
+    <thead>
+    <tr>
+        <th>Number</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>SignedBy</th>
+        <th>Email</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="tempPetition:${petitions}">
+        <td th:text="${tempPetition.num}" />
+        <td th:text="${tempPetition.title}" />
+        <td th:text="${tempPetition.desc}" />
+        <td th:text="${tempPetition.signedby}" />
+        <td th:text="${tempPetition.email}" />
+        <td>
+            <a th:href="@{/sign(petnum=${tempPetition.num})}">sign</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+
+</html>
