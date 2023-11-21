@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <title>Sign Petition</title>
+</head>
+
+<body>
+<h2> Sign a Petition </h2>
+<br />
+<a href="/home">Home</a> <br />
+<br />
+<br />
+<form action="#" th:action="@{/sign(petnum=${num})}" th:object="${num}" method="post">
+    <table>
+        <thead>
+        <tr>
+            <th>Number</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>SignedBy</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr >
+            <td th:text="${num}" />
+            <td th:text="${title}" />
+            <td th:text="${desc}" />
+            <td th:text="${signedby}" />
+            <td th:text="${email}" />
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <label for="labelsignedname">Your name: </label> <br/>
+    <input type="text" id="signName" name="signName">
+    <br />
+    <label for="labelemail">Your email: </label> <br/>
+    <input type="text" id="email" name="email">
+    <br />
+    <input type="submit" value="Submit">
+</form>
+</body>
+
+</html>

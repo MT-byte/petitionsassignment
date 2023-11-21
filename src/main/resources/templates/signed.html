@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <title>Petition Signed</title>
+</head>
+
+<body>
+<h2> Petition Signed</h2>
+<br />
+<a href="/home">Home</a> <br />
+<br />
+<br />
+<b>You signed the following petition </b>
+<br />
+<table>
+    <thead>
+    <tr>
+        <th>Number</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>SignedBy</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${num}" />
+        <td th:text="${title}" />
+        <td th:text="${desc}" />
+        <td th:text="${signedby}" />
+        <td th:text="${email}" />
+    </tr>
+    </tbody>
+</table>
+</body>
+
+</html>

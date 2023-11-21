@@ -128,4 +128,51 @@ public class AppController {
         return searchResults;
     }
 
+
+    @GetMapping("/sign")
+    public String signPage(@RequestParam int petnum, Model model) {
+        Petition petition = petitionList.get(petnum-1);
+        model.addAttribute("num", petition.getNum());
+        model.addAttribute("title", petition.getTitle());
+        model.addAttribute("desc", petition.getDesc());
+        model.addAttribute("signedby", petition.getSignedby());
+        model.addAttribute("email", petition.getEmail());
+        return "sign";
+    }
+
+
+    @PostMapping("/sign")
+    public String signPetition(@RequestParam int petnum, @ModelAttribute SignName signName, Model model) {
+        Petition petition = signPetition(petnum, signName);
+        model.addAttribute("num", petition.getNum());
+        model.addAttribute("title", petition.getTitle());
+        model.addAttribute("desc", petition.getDesc());
+        model.addAttribute("signedby", petition.getSignedby());
+        model.addAttribute("email", petition.getEmail());
+        return "signed";
+    }
+
+
+    public Petition signPetition(int petnum, SignName signName) {
+        System.out.println("signed by: " + signName.toString());
+        Petition petition = petitionList.get(petnum-1);
+        String newSignedbyList = petition.getSignedby() + "; " + signName.getSignName();
+        String newEmailList = petition.getEmail() + "; " + signName.getEmail();
+        petition.setSignedby(newSignedbyList);
+        petition.setEmail(newEmailList);
+        return petition;
+    }
+
+
+    @GetMapping("/signed")
+    public String signedPage(@RequestParam int petnum, @ModelAttribute SignName signName, Model model) {
+        Petition petition = petitionList.get(petnum-1);
+        model.addAttribute("num", petition.getNum());
+        model.addAttribute("title", petition.getTitle());
+        model.addAttribute("desc", petition.getDesc());
+        model.addAttribute("signedby", petition.getSignedby());
+        model.addAttribute("email", petition.getEmail());
+        return "signed";
+    }
+
 }
