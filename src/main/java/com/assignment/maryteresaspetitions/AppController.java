@@ -101,4 +101,31 @@ public class AppController {
         return "viewall";
     }
 
+
+    @GetMapping("/search")
+    public String searchPage() {
+        return "search";
+    }
+
+
+    @PostMapping("/search")
+    public String searchPetitions(@ModelAttribute SearchTerm searchTerm, Model model) {
+        ArrayList<Petition> searchResults = searchPetitions(searchTerm);
+        model.addAttribute("searchFor", searchTerm.getSearchTerm());
+        model.addAttribute("results", searchResults);
+        return "results";
+    }
+
+
+    public ArrayList<Petition> searchPetitions(SearchTerm searchTerm) {
+        System.out.println("searched: " + searchTerm.toString());
+        ArrayList<Petition> searchResults = new ArrayList<Petition>();
+        for(Petition p:petitionList) {
+            if(p.getDesc().contains(searchTerm.getSearchTerm())) {
+                searchResults.add(p);
+            }
+        }
+        return searchResults;
+    }
+
 }
