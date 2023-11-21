@@ -19,4 +19,18 @@ public class AppControllerUnitTests {
         Assertions.assertEquals(expectedPetition.toString(), actualPetition.toString());
     }
 
+
+    @Test
+    void searchPetitions() {
+        AppController petitionAC = new AppController();
+        SubmittedPetition newPetition = new SubmittedPetition("my title","my description", "my name", "my@email.com");
+        Petition expectedPetition = petitionAC.createPetition(newPetition);
+        SearchTerm searchTerm = new SearchTerm(newPetition.getDesc());
+
+        ArrayList<Petition> results = petitionAC.searchPetitions(searchTerm);
+
+        Petition actualPetition = results.get(0);
+        Assertions.assertEquals(expectedPetition.toString(), actualPetition.toString());
+    }
+
 }
