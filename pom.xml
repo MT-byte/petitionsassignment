@@ -60,7 +60,7 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>com.assignment.maryteresaspetitions.MaryteresaspetitionsApplication</mainClass>
+							<mainClass>org.example.Main</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
