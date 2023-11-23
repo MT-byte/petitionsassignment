@@ -15,8 +15,8 @@ public class MaryteresaspetitionsApplication {
 	}
 
 
-	public static void main(String[] args) {
-		SpringApplication.run(MaryteresaspetitionsApplication.class, args);
-	}
+	//public static void main(String[] args) {
+	//	SpringApplication.run(MaryteresaspetitionsApplication.class, args);
+	//}
 
 }
