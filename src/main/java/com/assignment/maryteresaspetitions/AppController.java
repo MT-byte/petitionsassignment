@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 
+
 @SpringBootApplication
 @Controller
 public class AppController {
@@ -20,10 +21,6 @@ public class AppController {
         return petitionList;
     }
 
-
-    public static void main(String[] args) {
-        SpringApplication.run(AppController.class, args);
-    }
 
 
     @GetMapping("/home")
