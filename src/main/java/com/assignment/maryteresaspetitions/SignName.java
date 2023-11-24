@@ -1,5 +1,8 @@
 package com.assignment.maryteresaspetitions;
 
+
+// This class implements a data structure required to pass the data (name and email of the person
+// that signs the petition) between the "view" to "controller" of the MVC architecture.
 public class SignName {
 
     private String signName;

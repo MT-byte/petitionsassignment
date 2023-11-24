@@ -9,11 +9,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 
-
+// The Petitions application is implemented using the MVC architecture. This class is implements
+// the "controller" methods of the architecture. It implements all the REST endpoints and also
+// has ArrayList that stores all the petitions data.
 @SpringBootApplication
 @Controller
 public class AppController {
 
+    // Data structure that stores all the petitions.
     ArrayList<Petition> petitionList;
 
 
@@ -21,12 +24,6 @@ public class AppController {
         return petitionList;
     }
 
-
-
-    @GetMapping("/home")
-    public String homePage() {
-        return "home";
-    }
 
 
     // Constructor
@@ -74,12 +71,24 @@ public class AppController {
     }
 
 
+    // Implements the control logic for the /home REST endpoint.
+    @GetMapping("/home")
+    public String homePage() {
+        return "home";
+    }
+
+
+    // Implements the control logic for the /create REST endpoint, i.e. the create feature
+    // of the application.
     @GetMapping("/create")
     public String creationPage() {
         return "create";
     }
 
 
+    // Implements the control logic for the /create REST endpoint, i.e. the create feature
+    // of the application. Petition is stored in the model (ArrayList) and "view" is updated
+    // to acknowledge to the user that the petition is created.
     @PostMapping("/create")
     public String createPetition(@ModelAttribute SubmittedPetition submittedPetition, Model model) {
         Petition petition = createPetition(submittedPetition);
@@ -92,6 +101,9 @@ public class AppController {
         return "added";
     }
 
+
+    // This is the core method that creates the petition object and stores it in the
+    // ArrayList. This method is used for unit testing as well.
     public Petition createPetition(SubmittedPetition submittedPetition) {
         System.out.println("New petition: " + submittedPetition.toString());
         Petition petition = new Petition(petitionList.size()+1, submittedPetition.getTitle(),
@@ -101,6 +113,8 @@ public class AppController {
     }
 
 
+    // Implements the control logic for the /viewall REST endpoint, i.e. the view feature
+    // of the application.
     @GetMapping("/viewall")
     public String viewPetitionsPage(Model model) {
         model.addAttribute("petitions", petitionList);
@@ -108,12 +122,17 @@ public class AppController {
     }
 
 
+    // Implements the control logic for the /search REST endpoint, i.e. the search feature
+    // of the application.
     @GetMapping("/search")
     public String searchPage() {
         return "search";
     }
 
 
+    // Implements the control logic for the /search REST endpoint, i.e. the search feature
+    // of the application. It searches for the supplied keywords in the description field
+    // of all the petitions. The results are then shown to the user on the results webpage.
     @PostMapping("/search")
     public String searchPetitions(@ModelAttribute SearchTerm searchTerm, Model model) {
         ArrayList<Petition> searchResults = searchPetitions(searchTerm);
@@ -123,6 +142,8 @@ public class AppController {
     }
 
 
+    // This is the core method for the search feature. It searches the description field of
+    // all the petitions. This method is also used in the unit tests to test the search feature.
     public ArrayList<Petition> searchPetitions(SearchTerm searchTerm) {
         System.out.println("searched: " + searchTerm.toString());
         ArrayList<Petition> searchResults = new ArrayList<Petition>();
@@ -135,6 +156,8 @@ public class AppController {
     }
 
 
+    // Implements the control logic for the /sign REST endpoint, i.e. the sign feature
+    // of the application.
     @GetMapping("/sign")
     public String signPage(@RequestParam int petnum, Model model) {
         Petition petition = petitionList.get(petnum-1);
@@ -147,6 +170,10 @@ public class AppController {
     }
 
 
+    // Implements the control logic for the /sign REST endpoint, i.e. the sign feature
+    // of the application. It updates the signedBy and the email field of the petitions
+    // data structure. The "view" is updated to indicate to the user that the petition is
+    // signed.
     @PostMapping("/sign")
     public String signPetition(@RequestParam int petnum, @ModelAttribute SignName signName, Model model) {
         Petition petition = signPetition(petnum, signName);
@@ -159,6 +186,9 @@ public class AppController {
     }
 
 
+    // This is the core method that implements the sign feature. It appends (delimited by ;)
+    // the signedBy and the email field of the petition data structure. This method is also
+    // used in the unit tests to test the sign feature.
     public Petition signPetition(int petnum, SignName signName) {
         System.out.println("signed by: " + signName.toString());
         Petition petition = petitionList.get(petnum-1);
@@ -167,18 +197,6 @@ public class AppController {
         petition.setSignedby(newSignedbyList);
         petition.setEmail(newEmailList);
         return petition;
-    }
-
-
-    @GetMapping("/signed")
-    public String signedPage(@RequestParam int petnum, @ModelAttribute SignName signName, Model model) {
-        Petition petition = petitionList.get(petnum-1);
-        model.addAttribute("num", petition.getNum());
-        model.addAttribute("title", petition.getTitle());
-        model.addAttribute("desc", petition.getDesc());
-        model.addAttribute("signedby", petition.getSignedby());
-        model.addAttribute("email", petition.getEmail());
-        return "signed";
     }
 
 }

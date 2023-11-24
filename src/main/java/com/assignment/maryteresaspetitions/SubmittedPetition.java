@@ -1,5 +1,9 @@
 package com.assignment.maryteresaspetitions;
 
+
+// This class implements a data structure required to pass the data (petition title, description,
+// name and email of the person that created the petition) between the "view" to "controller"
+// of the MVC architecture.
 public class SubmittedPetition {
     private String title;
     private String desc;

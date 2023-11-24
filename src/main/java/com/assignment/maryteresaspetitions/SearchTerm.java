@@ -1,5 +1,8 @@
 package com.assignment.maryteresaspetitions;
 
+
+// This class implements a data structure required to pass the data (search keywords) between
+// the "view" to "controller" of the MVC architecture.
 public class SearchTerm {
 
     private String searchTerm;
