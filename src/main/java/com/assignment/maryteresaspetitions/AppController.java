@@ -32,42 +32,38 @@ public class AppController {
 
         // The following are the sample petitions stored in the petitions list
         String title = "Library Petition";
-        String desc = "OpenStax is part of Rice University, which is a 501(c)(3) nonprofit \n" +
-                "charitable corporation. As an educational initiative, it's our mission to \n" +
-                "transform learning so that education works for every student. Through our\n" +
-                "partnerships with philanthropic organizations and our alliance with other \n" +
-                "educational resource companies, we're breaking down the most common barriers \n" +
-                "to learning. Because we believe that everyone should and can have access \n" +
-                "to knowledge.";
-        petitionList.add(new Petition(1, title, desc, "Signedby1", "email1@email.com"));
+        String desc = "This non profit organization was set up for everyone, \n " +
+                "to especially increase student (of all ages) access to high-quality learning materials, \n" +
+                "maintaining highest standards of academic rigor. \n " +
+                "And to make resources available to all without any further cost.";
+        petitionList.add(new Petition(1, title, desc, "Name1", "email1@email.com"));
 
         title = "Zoo Petition";
-        desc = "Welcome to Preparing for College Success, an OpenStax resource. This textbook \n" +
-                "was written to increase student access to high-quality learning materials, \n" +
-                "maintaining highest standards of academic rigor at little to no cost.";
-        petitionList.add(new Petition(2, title, desc, "Signedby2", "email2@email.com"));
+        desc = "Save the animals, support the workers and volunteers. \n" +
+                "Come visit us with your family or school friends. \n" +
+                "Learn through experience, watching our programs on line or in person.";
+        petitionList.add(new Petition(2, title, desc, "Name2", "email2@email.com"));
 
         title = "Road Petition";
-        desc = "Preparing for College Success is licensed under a Creative Commons Attribution \n" +
-                "4.0 International (CC BY) license, which means that you can distribute, remix, \n" +
-                "and build upon the content, as long as you provide attribution to OpenStax \n" +
-                "and its content contributors";
-        petitionList.add(new Petition(3, title, desc, "Signedby3", "email3@email.com"));
+        desc = "Safety for all our road users includes everyone, work as a team. \n" +
+                "Drivers are people in all vehicles, passengers of all ages, \n" +
+                "pedestrians from little children to elderly and everyone in between, \n" +
+                "along with the cyclists and scooters and all other users, time to work as a team.";
+        petitionList.add(new Petition(3, title, desc, "Name3", "email3@email.com"));
 
         title = "Office Petition";
-        desc = "Because our books are openly licensed, you are free to use the entire book or \n" +
-                "pick and choose the sections that are most relevant to the needs of your \n" +
-                "course. Feel free to remix the content by assigning your students \n" +
-                "certain chapters and sections in your syllabus, in the order that you \n" +
-                "prefer. You can even provide a direct link in your syllabus to the \n" +
-                "sections in the web view of your book.\n";
-        petitionList.add(new Petition(4, title, desc, "Signedby4", "email4@email.com"));
+        desc = "Working more comfortably, resources and creches now available. \n" +
+                "We support families, students, volunteeers, remote workers, all equally. \n" +
+                "Thank you for your support.";
+        petitionList.add(new Petition(4, title, desc, "Name4", "email4@email.com"));
 
         title = "School Petition";
-        desc = "Instructors also have the option of creating a customized version of their OpenStax book. The custom version\n" +
-                "can be made available to students in low-cost print or digital form through their campus bookstore. Visit the\n" +
-                "Instructor Resources section of your book page on OpenStax.org for more information.";
-        petitionList.add(new Petition(5, title, desc, "Signedby5", "email5@email.com"));
+        desc = "As an educational initiative, it's our mission to \n" +
+                "transform learning so that education works for every student. Through our\n" +
+                "partnerships with organizations and our alliance with other \n" +
+                "educational resource companies, we're breaking down the most common barriers \n" +
+                "to learning. Thank you for your support.";
+        petitionList.add(new Petition(5, title, desc, "Name5", "email5@email.com"));
     }
 
 
